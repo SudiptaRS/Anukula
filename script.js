@@ -37,11 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- Form Submission Handling (REMOVED) ---
-    // The JavaScript logic for handling form submission via fetch
-    // has been removed from this file. The browser will now submit
-    // the form directly to the Formspree endpoint defined in your
-    // index.html file's <form action="...">.
-    // Formspree will then handle the email sending and typically
-    // redirect the user to a "Thank You" page.
+    // --- Form Submission Handling: REMOVED ---
+    // The previous JavaScript logic that intercepted form submissions and
+    // attempted to display messages on the page using fetch API has been
+    // removed. This is because Formspree, in its default setup for direct
+    // form submissions, performs a page redirect rather than sending
+    // a JSON response back to the client-side JavaScript.
+    // By removing this code, the browser will now handle the form submission
+    // directly to Formspree, and Formspree will manage the post-submission
+    // experience (typically a redirect to a thank-you page).
 });
