@@ -474,38 +474,45 @@ footer p {
     }
 }
 
+/* Responsive Design - Mobile Breakpoint */
 @media (max-width: 768px) {
     header .container {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-wrap: nowrap; /* Ensures logo and toggle stay on one line */
+        justify-content: space-between; /* Pushes logo to left, toggle to right */
+        align-items: center; /* Vertically aligns items in header */
     }
     .logo {
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 15px;
+        width: auto; /* Allow logo to take natural width */
+        margin-bottom: 0; /* Remove bottom margin for better alignment */
     }
     nav {
-        display: none; /* Hide navigation by default */
+        display: none; /* Hidden by default */
+        position: absolute; /* Take nav out of normal flow to overlay content */
+        top: 80px; /* Adjust this value if your header's height is different. This places the menu below the header. */
+        left: 0;
         width: 100%;
-        text-align: center;
+        background-color: var(--dark-bg); /* Crucial: Gives the mobile menu a solid background */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 999; /* Ensures menu is above other content */
+        transition: top 0.3s ease-in-out; /* Smooth slide-down animation */
     }
     nav.active {
         display: block; /* Show when active */
     }
     nav ul {
-        display: block;
+        display: block; /* Stack navigation items vertically */
         padding-top: 15px;
         border-top: 1px solid rgba(255,255,255,0.2);
     }
     nav ul li {
-        display: block;
+        display: block; /* Each item takes full width */
         margin: 15px 0;
     }
     .nav-toggle {
         display: block; /* Show hamburger icon */
-        position: absolute;
-        right: 20px;
-        top: 25px;
+        position: static; /* Position normally within the flex container (header .container) */
+        right: auto; /* Reset right property */
+        top: auto; /* Reset top property */
     }
     .hamburger.active {
         background: transparent;
@@ -518,7 +525,7 @@ footer p {
         transform: rotate(-45deg);
         top: 0;
     }
-
+}
     .hero-section {
         padding: 100px 20px;
     }
