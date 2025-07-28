@@ -480,20 +480,24 @@ footer p {
         flex-wrap: nowrap; /* Ensures logo and toggle stay on one line */
         justify-content: space-between; /* Pushes logo to left, toggle to right */
         align-items: center; /* Vertically aligns items in header */
+        /* You might want to add some padding-bottom if the header content is too tall */
+        padding-bottom: 5px; /* Added for subtle spacing if content pushes it */
     }
     .logo {
         width: auto; /* Allow logo to take natural width */
         margin-bottom: 0; /* Remove bottom margin for better alignment */
     }
+    /* Updated NAV styles for mobile menu */
     nav {
         display: none; /* Hidden by default */
         position: absolute; /* Take nav out of normal flow to overlay content */
-        top: 80px; /* Adjust this value if your header's height is different. This places the menu below the header. */
+        top: 100px; /* IMPORTANT CHANGE: Adjust this based on your actual header height. */
+                    /* Your current header (logo + text) is taller than 80px, so 100px ensures it starts below. */
         left: 0;
         width: 100%;
         background-color: var(--dark-bg); /* Crucial: Gives the mobile menu a solid background */
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        z-index: 999; /* Ensures menu is above other content */
+        z-index: 1005; /* IMPORTANT CHANGE: Set a high z-index to ensure it's above other content and header (which is 1000) */
         transition: top 0.3s ease-in-out; /* Smooth slide-down animation */
     }
     nav.active {
@@ -509,7 +513,7 @@ footer p {
         margin: 15px 0;
     }
     .nav-toggle {
-        display: block; /* Show hamburger icon */
+        display: block;
         position: static; /* Position normally within the flex container (header .container) */
         right: auto; /* Reset right property */
         top: auto; /* Reset top property */
