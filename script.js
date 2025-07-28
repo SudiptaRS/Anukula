@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('nav ul');
+    const nav = document.querySelector('nav'); // <--- THIS IS THE FIX!
     const hamburger = document.querySelector('.hamburger');
 
     // --- Navigation Toggle (for mobile responsiveness) ---
